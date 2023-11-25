@@ -1,0 +1,67 @@
+body {
+    font-family: Arial;
+    background-color: #F4f4f4;
+    padding: 30px;
+    color: #333;
+    background-image: url("./img/img.png");
+    background-size: cover;
+}
+button {
+    background-color: #333974;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: .8;
+    transition: 0.3s;
+    &:hover {
+        opacity: 1;
+    }
+}
+.todo {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #efefef;
+    padding: 20px 30px;
+    border-radius: 10px;
+    h1 {
+        text-align: center;
+    }
+    &-list {
+
+        h2 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 10px 0;
+        }
+    }
+}
+
+//component todo
+
+.todo-list-todo {
+    &-content {
+        .complet {
+            background-color: #5cb85c;
+        }
+        .remove {
+            background-color: #d953af;
+        }
+    }
+}
+
+// component todoForm
+
+.todo-form {
+    padding-bottom: 1.5rem;
+
+}
+input, select {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    width: 100%;
+}
