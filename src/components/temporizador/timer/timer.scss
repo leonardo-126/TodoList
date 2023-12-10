@@ -1,0 +1,36 @@
+.timer-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 480px;
+    max-height: 300px;
+    margin: 0 auto;
+    border-radius: 6px;
+    .timer-nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #fff;
+            padding: 5px 10px;
+            transition: 0.2s;
+
+            
+            &:hover {
+                background: rgba(0, 0, 0,0.2);
+                border-radius: 6px;
+                color: #fff;    
+                
+            }
+        }
+        button[active="true"] {
+            background: rgba(0, 0, 0,0.1);
+            border-radius: 6px;
+        }
+    }
+}

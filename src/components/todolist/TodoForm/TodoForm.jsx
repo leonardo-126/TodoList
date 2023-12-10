@@ -4,13 +4,15 @@ import './todoForm.scss'
 export const TodoForm = ({addTodo}) => {
     const [value, setValue] = useState("")
     const [category, setCategory] = useState("")
+    const [time, setTime] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(!value || !category) return;
-        addTodo(value, category)
+        if(!value || !category || !time) return;
+        addTodo(value, category, time)
         setCategory("");
         setValue("");
+        setTime("")
     }
 
     return (
@@ -27,6 +29,13 @@ export const TodoForm = ({addTodo}) => {
                     <option value="Pessoal">Pessoal</option>
                     <option value="Estudo">Estudo</option>
                 </select>
+                <label>Horario para Finalização:</label>
+                <input 
+                type="time" 
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+                min="00:00" 
+                max="23:59"/>
                 <button type="submit">Criar</button>
             </form>
         </div>

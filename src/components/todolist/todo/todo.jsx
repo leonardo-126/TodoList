@@ -9,6 +9,7 @@ export const Todo = ({todo, removeTodo, completTodo}) => {
                     <p className="todo-list-todo-content-category">
                     ({todo.category})
                     </p>
+                    <span>Horario de Finalizacao da Tarefa: {todo.time}</span>
                 </div>
                 <div>
                     <button className="complet" onClick={() => completTodo(todo.id)}>Completar</button>

@@ -3,8 +3,6 @@ body {
     background-color: #F4f4f4;
     padding: 30px;
     color: #333;
-    background-image: url("./img/img.png");
-    background-size: cover;
 }
 button {
     background-color: #333974;
@@ -36,16 +34,19 @@ h2 {
 p {
     margin: 10px 0;
 }
-.todo {
-    max-width: 700px;
-    margin: 0 auto;
-    background-color: #efefef;
-    padding: 20px 30px;
-    border-radius: 10px;
-    
-    &-list {
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #555;
+.app{
+    display: flex;
+    .todo {
+        max-width: 700px;
+        margin: 0 auto;
+        background-color: #efefef;
+        padding: 20px 30px;
+        border-radius: 10px;
+        
+        &-list {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #555;
+        }
     }
 }

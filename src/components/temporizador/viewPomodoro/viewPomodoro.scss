@@ -1,0 +1,40 @@
+.container-timer {
+    width: 100%;
+    &-timer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+        h1 {
+            font-size: 130px;
+            color: #fff;
+            letter-spacing: 5px;
+        }
+    }
+    &-start {
+        width: 200px;
+        margin: 0 auto;
+        button {
+            background-color: #fff;
+            opacity: 1;
+            cursor: pointer;
+            margin: 20px 0 20px;
+            height: 50px;
+            width: 200px;
+            border-radius: 6px;
+            border: none;
+            text-transform: uppercase;
+            transition: all .3s;
+            
+            &:hover {
+                transform: scale(1.1);
+            }
+            
+
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+    }
+}
