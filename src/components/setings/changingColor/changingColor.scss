@@ -1,0 +1,14 @@
+.container {
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    gap: 8px;
+    button{
+        width: 30px;
+        height: 30px;
+        background-color: red; 
+        border-radius: 6px;
+    }
+}

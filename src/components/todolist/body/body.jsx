@@ -44,38 +44,41 @@ export const Body = () => {
     console.log({todos})
   }
     return (
-        <div className="todo">
-          <h1>Lista de Tarefas</h1>
-          <Search search={search} setSearch={setSearch}/>
-          <Filter filter={filter} setFilter={setFilter} setSort={setSort}/>
-          <div className="todo-list">
-            {todos
-              .filter((todo) =>
-                filter === "All"
-                  ? true 
-                  : filter === "Completed"
-                  ? todo.isCompleted
-                  : !todo.isCompleted
-              )
-              .filter((todo) => 
-                todo.text.toLowerCase().includes(search.toLowerCase())
-              )
-              .sort((a, b) => 
-                sort == "Acs" 
-                  ? a.text.localeCompare(b.text)
-                  : b.text.localeCompare(a.text)
-              )
-              
-              .map((todo) => (
-              <Todo 
-                key={todo.id} 
-                todo={todo} 
-                completTodo={completTodo} 
-                removeTodo={removeTodo}
-              />
-            ))}
+        
+        <div className="app">
+          <div className="todo">
+            <h1>Lista de Tarefas</h1>
+            <Search search={search} setSearch={setSearch}/>
+            <Filter filter={filter} setFilter={setFilter} setSort={setSort}/>
+            <div className="todo-list">
+              {todos
+                .filter((todo) =>
+                  filter === "All"
+                    ? true 
+                    : filter === "Completed"
+                    ? todo.isCompleted
+                    : !todo.isCompleted
+                )
+                .filter((todo) => 
+                  todo.text.toLowerCase().includes(search.toLowerCase())
+                )
+                .sort((a, b) => 
+                  sort == "Acs" 
+                    ? a.text.localeCompare(b.text)
+                    : b.text.localeCompare(a.text)
+                )
+                
+                .map((todo) => (
+                <Todo 
+                  key={todo.id} 
+                  todo={todo} 
+                  completTodo={completTodo} 
+                  removeTodo={removeTodo}
+                />
+              ))}
+            </div>
+            <TodoForm addTodo={addTodo}/>
           </div>
-          <TodoForm addTodo={addTodo}/>
         </div>
     )
 }

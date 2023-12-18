@@ -8,7 +8,14 @@
         gap: 3rem;
         div {
             flex: 1 1 0;
+        
         }
+        &-btn {
+            button {
+                opacity: 1;
+            }
+        }
+
     }
     
 }

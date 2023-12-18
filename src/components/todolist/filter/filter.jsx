@@ -13,7 +13,7 @@ export const Filter = ({filter,setFilter, setSort}) => {
                         <option value="Incomplete">Incompletas</option>
                     </select>
                 </div>
-                <div>
+                <div className='filter-container-btn'>
                     <p>Ordem alfabetica:</p>
                     <button onClick={() => setSort("Acs")}>Acs</button>
                     <button onClick={() => setSort("Desc")}>Desc</button>

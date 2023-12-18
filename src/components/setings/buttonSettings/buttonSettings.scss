@@ -1,0 +1,21 @@
+.button-settings {
+    width: 70px;
+    height: 32px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: rgb(207, 205, 205);
+    display: flex;
+    align-items: center;
+    
+    button {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        border-radius: 360px;
+        cursor: pointer;
+
+        border: none;
+        background-color: #fff;
+        margin: 0 2px;
+    }
+}
