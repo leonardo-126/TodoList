@@ -1,30 +1,45 @@
 import { useEffect, useState } from 'react'
 import './viewPomodoro.scss'
 import { secondToTime } from './secondToTime/secondToTime'
+import {  useSelector } from 'react-redux'
 
 export const ViewPomodoro = (props) => {
+    const times = useSelector((state) => state.Timer)
+    
+    
+    const colors = useSelector((state) => state.Color)
 
-    const [time, setTime] = useState(1500) 
     const  [start, setStart] = useState(false)
     const [btnColor, setBtnColor] = useState('#fff')
+    const [timer, setTimer] = useState(times.pomodoroTimer)
     
-
     // navegacao
     useEffect(() => {
         if (props.type == "pomodoro") {
-            setTime(1800)
             setStart(false)
-            setBtnColor('rgb(57, 112, 151)')
+            setBtnColor(colors.pomodoroColor)
         }else if (props.type == "short") {
-            setTime(300)
             setStart(false)
-            setBtnColor('#7D53A2')
+            setBtnColor(colors.shortColor)
         }else {
-            setTime(3600)
             setStart(false)
-            setBtnColor('#BA4949')
+            setBtnColor(colors.longColor)
         }
-    }, [props.type])
+    }, [props.type, colors])
+
+
+    useEffect(() => {
+        if (props.type == "pomodoro") {
+            setTimer(times.pomodoroTimer)
+            setStart(false)
+        }else if (props.type == "short") {
+            setTimer(times.shortTimer)
+            setStart(false)
+        }else {
+            setTimer(times.longTimer)
+            setStart(false)
+        }
+    }, [props.type, times])
 
     const btn = {
         color: btnColor,
@@ -33,18 +48,18 @@ export const ViewPomodoro = (props) => {
     //timer
     useEffect(() => {
         let startTimer
-        if (start && time > 0) {
+        if (start && timer > 0) {
             startTimer = setInterval(() => {
-                setTime(prevValor => prevValor - 1) // prevValor pega um valor antigo armazenado no useState
+                setTimer(prevValor => prevValor - 1) // prevValor pega um valor antigo armazenado no useState
             }, 1000)
-        } else if (time === 0) {
+        } else if (timer === 0) {
             setStart(false)
             window.alert("Finish your time")
         }
         return () => {
             clearInterval(startTimer)
         }
-    }, [start, time])
+    }, [start, timer])
 
 
     //pausar e iniciar
@@ -60,7 +75,7 @@ export const ViewPomodoro = (props) => {
         <>
             <div className="container-timer">
                 <div className="container-timer-timer">
-                    <h1>{secondToTime(time)}</h1>
+                    <h1>{secondToTime(timer)}</h1>
                 </div>
                 <div className="container-timer-start">
                     <button onClick={start ? handlePause : handleStart}>

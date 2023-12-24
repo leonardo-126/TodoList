@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react'
 import './timer.scss'
 import { ViewPomodoro } from '../viewPomodoro/viewPomodoro'
-import { useContext } from 'react'
-import MyContext from '../../../MyContext'
+import { useSelector } from 'react-redux'
 
 
 export const Timer = () => {
-    const { colorbg, setColorbg, viewTimer, setViewTimer} = useContext(MyContext);
+    const colorPomodoro = useSelector((state) => state.Color.pomodoroColor)
+    const colorShort = useSelector((state) => state.Color.shortColor)
+    const colorLong = useSelector((state) => state.Color.longColor)
     const bgColor = document.getElementsByTagName('body')[0]
+    const [viewTimer, setViewTimer] = useState("pomodoro")
+
     useEffect(() => {
         if (viewTimer === "pomodoro") {
-            bgColor.style.backgroundColor = 'rgb(57, 112, 151)'
-            setColorbg("rgb(57, 112, 151)")
+            bgColor.style.backgroundColor = colorPomodoro
         } else if (viewTimer === "short") {
-            bgColor.style.backgroundColor = '#7D53A2'
-            setColorbg("#7D53A2")
+            bgColor.style.backgroundColor = colorShort
         } else {
-            bgColor.style.backgroundColor = '#BA4949'
-            setColorbg("#BA4949")
+            bgColor.style.backgroundColor = colorLong
         }
-    }, [viewTimer])
+    }, [colorPomodoro, colorShort, colorLong, viewTimer])
 
     return (
         <div className="timer-container">

@@ -3,18 +3,17 @@ import './app.scss'
 import { Header } from './components/header/header'
 import { Navbar } from './components/navbar/navbar'
 import MyContext from './MyContext'
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
 
 function App() {
-  const [colorbg, setColorbg] = useState('rgb(57, 112, 151)')
-  const [viewTimer, setViewTimer] = useState("pomodoro")
-  
   return (
     <>
       <div className="app">
-        <MyContext.Provider value={{colorbg, setColorbg, viewTimer, setViewTimer}}>
+        <Provider store={store}>
           <Navbar/>
           <Header/>
-        </MyContext.Provider>
+        </Provider>
       </div>
       
     </>
