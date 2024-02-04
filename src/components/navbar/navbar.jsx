@@ -4,13 +4,18 @@ import { AiFillCheckCircle, AiOutlineSetting} from 'react-icons/ai';
 import { HiOutlineDocumentReport } from 'react-icons/hi';
 import { IoMdContact } from 'react-icons/io';
 import { Settings } from "../setings/settings/settings";
+import { Login } from "../login/login";
 
 export const Navbar = () => {
     const [modalSetting, setModalSetting] = useState(false)
+    const [modalLogin, setModalLogin] = useState(false)
+
+    const modalTongleLogin = () => {
+        setModalLogin(!modalLogin)
+    }
     
     const modalTongle = () => {
         setModalSetting(!modalSetting)
-        
     }
     return (
         <>
@@ -22,13 +27,13 @@ export const Navbar = () => {
                     <nav className="header-content-navbar">
                         <ul>
                             <li>
-                                <a href="#"><HiOutlineDocumentReport/>Report</a>
+                                <a href="#" id="report"><HiOutlineDocumentReport/>Report</a>
                             </li>
                             <li>
-                                <a href="#" onClick={modalTongle}><AiOutlineSetting/>Setting</a>
+                                <a href="#" onClick={modalTongle} id="setting"><AiOutlineSetting/>Setting</a>
                             </li>
                             <li>
-                                <a href="#"><IoMdContact/>Login</a>
+                                <a href="#" onClick={modalTongleLogin} id="login"><IoMdContact/>Login</a>
                             </li>
                         </ul>
                     </nav>
@@ -37,8 +42,9 @@ export const Navbar = () => {
                 <div className='header-content-border'></div>
                 
             </div>
-
+            
             {modalSetting ? <Settings setModalProps={modalTongle} /> : <></>} {/*modal of settings*/}
+            {modalLogin ? <Login setModalProps={modalTongleLogin}/> : <></>}
         </>
     )
 }

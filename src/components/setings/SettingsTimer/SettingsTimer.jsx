@@ -91,7 +91,7 @@ export const SettingsTimer = (props) => {
                         </label>
                     </div>
                 </div>
-                <button type='submit'></button>
+                <button type='submit'>Alterar</button>
             </form>
             <div className="container-st-child-content-timer-breaks">
                 <h1>Auto Start Breaks</h1>
